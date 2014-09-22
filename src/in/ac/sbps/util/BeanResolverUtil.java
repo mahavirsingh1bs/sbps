@@ -4,9 +4,8 @@
  */
 package in.ac.sbps.util;
 
-import in.ac.sbps.config.AppConfig;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -14,10 +13,15 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class BeanResolverUtil {
     private static final ApplicationContext context = 
-            new AnnotationConfigApplicationContext(AppConfig.class);
+            new ClassPathXmlApplicationContext("classpath:/in/ac/sbps/config/applicationContext.xml");
     
     public static Object getBean(String beanName) {
         return context.getBean(beanName);
     }
     
+    /**
+    public static void main(String...args) {
+        System.out.println(getBean("studentDAO"));
+    }
+    */
 }

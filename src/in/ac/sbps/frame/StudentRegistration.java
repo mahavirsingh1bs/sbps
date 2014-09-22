@@ -8,6 +8,7 @@ import in.ac.sbps.domain.Student;
 import in.ac.sbps.exception.ServiceException;
 import in.ac.sbps.service.StudentService;
 import in.ac.sbps.util.BeanResolverUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -221,7 +222,7 @@ public class StudentRegistration extends javax.swing.JFrame {
         String firstName = firstNameTextField.getText();
         String lastName = lastNameTextField.getText();
         String fatherName = fatherNameTextField.getText();
-        String motherName = firstNameTextField.getText();
+        String motherName = motherNameTextField.getText();
         String className = classComboBox.getName();
         String section = sectionComboBox.getName();
         String village = villageTextField.getText();
@@ -272,6 +273,10 @@ public class StudentRegistration extends javax.swing.JFrame {
             }
         });
     }
+    
+    // @Autowired
+    // private StudentService studentService;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addMenuItem;
     private javax.swing.JButton cancelButton;

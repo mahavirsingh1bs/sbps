@@ -10,12 +10,10 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,13 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class GenericDAOImpl<ID extends Serializable, T> implements GenericDAO<ID, T> {
     
-    @Autowired
-    private PlatformTransactionManager transactionManager;
-    
-    @Autowired
-    private EntityManagerFactory emf;
-    
-    @Autowired
+    @PersistenceContext
     protected EntityManager entityManager;
     
     /**
@@ -44,9 +36,11 @@ public class GenericDAOImpl<ID extends Serializable, T> implements GenericDAO<ID
      * Constructor default
      */
     public GenericDAOImpl() {
+        /**
         Type t = getClass().getGenericSuperclass();
         ParameterizedType pt = (ParameterizedType) t;
-        type = (Class) pt.getActualTypeArguments()[0];
+        type = (Class) pt.getActualTypeArguments()[1];
+        */
     }
 
     /**
@@ -56,7 +50,6 @@ public class GenericDAOImpl<ID extends Serializable, T> implements GenericDAO<ID
     @Transactional(propagation = Propagation.REQUIRED)
     public T create(T t) throws DAOException {
         try {
-            System.out.println(emf == ((JpaTransactionManager )transactionManager).getEntityManagerFactory());
             entityManager.persist(t);
             return t;
         } catch (PersistenceException exception) {
