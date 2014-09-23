@@ -16,4 +16,17 @@ public enum Education {
     private Education(String education) {
         this.education = education;
     }
+    
+    public static String enumToString(Education education) {
+        return education.education;
+    }
+    
+    public static Education educationValueOf(String educ) {
+        for (Education education : Education.values()) {
+            if (education.education.equals(educ)) {
+                return education;
+            }
+        }
+        return null;
+    }
 }

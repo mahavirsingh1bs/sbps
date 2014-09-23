@@ -9,6 +9,8 @@ import in.ac.sbps.util.Section;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,9 +40,11 @@ public class Student implements Serializable {
     @Column(name = "MOTHER_NAME")
     private String motherName;
     
+    @Enumerated(EnumType.STRING)
     @Column(name = "STU_CLASS")
     private SClass stuClass;
     
+    @Enumerated(EnumType.STRING)
     @Column(name = "STU_SECTION")
     private Section section;
     
@@ -55,6 +59,17 @@ public class Student implements Serializable {
         this.lastName = lastName;
         this.fatherName = fatherName;
         this.motherName = motherName;
+        this.village = village;
+    }
+    
+    public Student(String firstName, String lastName, String fatherName, 
+            String motherName, String sClass, String section, String village) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fatherName = fatherName;
+        this.motherName = motherName;
+        this.stuClass = SClass.classValueOf(sClass);
+        this.section = Section.sectionValueOf(section);
         this.village = village;
     }
     

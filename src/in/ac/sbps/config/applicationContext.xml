@@ -24,6 +24,10 @@
     </bean>
 
     <bean id="studentService" class="in.ac.sbps.service.impl.StudentServiceImpl" />
+    
+    <bean id="teacherService" class="in.ac.sbps.service.impl.TeacherServiceImpl" />
+    
+    <bean id="studentDAO" class="in.ac.sbps.dao.impl.StudentDAOImpl" />
 
     <bean  id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
     	<property name="entityManagerFactory" ref="entityManagerFactory" />

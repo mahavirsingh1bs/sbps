@@ -8,6 +8,8 @@ import in.ac.sbps.util.Education;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,6 +33,7 @@ public class Teacher implements Serializable {
     @Column(name = "LAST_NAME")
     private String lastName;
     
+    @Enumerated(EnumType.STRING)
     @Column(name = "EDUCATION")
     private Education education;
     
@@ -43,6 +46,18 @@ public class Teacher implements Serializable {
     @Column(name = "CITY")
     private String city;
 
+    public Teacher() { }
+    
+    public Teacher(String firstName, String lastName, String educ, 
+            String percent, String college, String city) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.education = Education.educationValueOf(educ);
+        this.percent = percent;
+        this.college = college;
+        this.city = city;
+    }
+    
     public Long getId() {
         return id;
     }
