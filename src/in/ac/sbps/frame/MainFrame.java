@@ -4,10 +4,14 @@
  */
 package in.ac.sbps.frame;
 
+import in.ac.sbps.domain.Student;
 import in.ac.sbps.panel.StudentDetail;
 import in.ac.sbps.panel.TeacherDetail;
 import in.ac.sbps.panel.TeacherSearch;
+import in.ac.sbps.service.StudentService;
 import in.ac.sbps.util.SClass;
+import java.util.List;
+import javax.swing.JPanel;
 
 /**
  *
@@ -158,10 +162,10 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_addTeacherMenuItemActionPerformed
 
     private void studentSearchMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentSearchMenuItemActionPerformed
-        welcomeLabel.setText("");
+        this.setContentPane(new JPanel());
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         javax.swing.JTable jTable1 = new javax.swing.JTable();
-
+        
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             StudentDataAdapter.getData(),
             new String [] {
@@ -195,7 +199,6 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
-        pack();
     }//GEN-LAST:event_studentSearchMenuItemActionPerformed
 
     private void teacherSearchMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherSearchMenuItemActionPerformed
@@ -251,4 +254,20 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem teacherSearchMenuItem;
     private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
+}
+
+class StudentDataAdapter {
+    public static String[][] getData() {
+        StudentService studentService = (StudentService )in.ac.sbps.util.BeanResolverUtil.getBean("studentService");
+        List<Student> students = studentService.findAllStudent();
+        String[][] result = new String[students.size()][4];
+        for (int i = 0; i < students.size(); i++) {
+            Student student = students.get(i);
+            result[i][0] = student.getFirstName() + " " + student.getLastName();
+            result[i][1] = student.getFatherName();
+            result[i][2] = SClass.enumToString(student.getStuClass());
+            result[i][3] = student.getVillage();
+        }
+        return result;
+    }
 }
