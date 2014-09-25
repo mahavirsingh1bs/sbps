@@ -6,19 +6,8 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="studentMenu">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
             <Property name="text" type="java.lang.String" value="Student"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Raavi" size="12" style="1"/>
-            </Property>
           </Properties>
-          <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="studentMenuMouseEntered"/>
-          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="addStudentMenuItem">
               <Properties>
@@ -58,9 +47,6 @@
         <Menu class="javax.swing.JMenu" name="teacherMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Teacher"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Raavi" size="12" style="1"/>
-            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="addTeacherMenuItem">
@@ -81,9 +67,6 @@
         <Menu class="javax.swing.JMenu" name="searchMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Search"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Raavi" size="12" style="1"/>
-            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="studentSearchMenuItem">
@@ -103,28 +86,6 @@
               </Events>
             </MenuItem>
           </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="aboutUsMenu">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="About Us"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Raavi" size="12" style="1"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aboutUsMenuMouseClicked"/>
-          </Events>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="contactUsMenu">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Contact Us"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Raavi" size="12" style="1"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="contactUsMenuMouseClicked"/>
-          </Events>
         </Menu>
       </SubComponents>
     </Menu>
@@ -152,19 +113,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="271" max="32767" attributes="0"/>
-              <Component id="welcomeLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="351" max="-2" attributes="0"/>
+              <Component id="welcomeLabel" min="-2" pref="192" max="-2" attributes="0"/>
+              <EmptySpace pref="363" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
               <Component id="welcomeLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="240" max="32767" attributes="0"/>
+              <EmptySpace pref="258" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -175,8 +136,11 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Welcome to Shri Bhagwan Public School"/>
+        <Property name="text" type="java.lang.String" value="Welcome to SBPS"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="SBPS"/>
+      </AccessibilityProperties>
     </Component>
   </SubComponents>
 </Form>

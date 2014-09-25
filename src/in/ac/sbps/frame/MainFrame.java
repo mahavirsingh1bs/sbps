@@ -8,13 +8,14 @@ import in.ac.sbps.domain.Student;
 import in.ac.sbps.panel.AboutUsPanel;
 import in.ac.sbps.panel.ContactUsPanel;
 import in.ac.sbps.panel.StudentDetail;
-import in.ac.sbps.panel.StudentSearch;
 import in.ac.sbps.panel.TeacherDetail;
 import in.ac.sbps.panel.TeacherSearch;
 import in.ac.sbps.service.StudentService;
+import in.ac.sbps.table.model.StudentTableModel;
 import in.ac.sbps.util.SClass;
 import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -50,22 +51,13 @@ public class MainFrame extends javax.swing.JFrame {
         searchMenu = new javax.swing.JMenu();
         studentSearchMenuItem = new javax.swing.JMenuItem();
         teacherSearchMenuItem = new javax.swing.JMenuItem();
-        aboutUsMenu = new javax.swing.JMenu();
-        contactUsMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         welcomeLabel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        welcomeLabel.setText("Welcome to Shri Bhagwan Public School");
+        welcomeLabel.setText("Welcome to SBPS");
 
-        studentMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         studentMenu.setText("Student");
-        studentMenu.setFont(new java.awt.Font("Raavi", 1, 12)); // NOI18N
-        studentMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                studentMenuMouseEntered(evt);
-            }
-        });
 
         addStudentMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         addStudentMenuItem.setText("Add");
@@ -97,7 +89,6 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuBar1.add(studentMenu);
 
         teacherMenu.setText("Teacher");
-        teacherMenu.setFont(new java.awt.Font("Raavi", 1, 12)); // NOI18N
 
         addTeacherMenuItem.setText("Add");
         addTeacherMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +104,6 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuBar1.add(teacherMenu);
 
         searchMenu.setText("Search");
-        searchMenu.setFont(new java.awt.Font("Raavi", 1, 12)); // NOI18N
 
         studentSearchMenuItem.setText("Student");
         studentSearchMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -133,42 +123,26 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(searchMenu);
 
-        aboutUsMenu.setText("About Us");
-        aboutUsMenu.setFont(new java.awt.Font("Raavi", 1, 12)); // NOI18N
-        aboutUsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                aboutUsMenuMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(aboutUsMenu);
-
-        contactUsMenu.setText("Contact Us");
-        contactUsMenu.setFont(new java.awt.Font("Raavi", 1, 12)); // NOI18N
-        contactUsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                contactUsMenuMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(contactUsMenu);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(271, Short.MAX_VALUE)
-                .addComponent(welcomeLabel)
-                .addGap(218, 218, 218))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(351, 351, 351)
+                .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(363, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
+                .addGap(143, 143, 143)
                 .addComponent(welcomeLabel)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
+
+        welcomeLabel.getAccessibleContext().setAccessibleName("SBPS");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,26 +168,16 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_addTeacherMenuItemActionPerformed
 
     private void studentSearchMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentSearchMenuItemActionPerformed
-        /**
         this.setContentPane(new JPanel());
-        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         javax.swing.JTable jTable1 = new javax.swing.JTable();
+        javax.swing.JScrollPane jScrollPane1 = new JScrollPane();
         
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            StudentDataAdapter.getData(),
+        jTable1.setModel(new StudentTableModel(
             new String [] {
                 "Name", "Father Name", "Student Class", "Village"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, SClass.class, java.lang.String.class
-            };
-
-            @Override
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+            }, new Class[] {
+                String.class, String.class, String.class, String.class
+            }, 100));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -232,9 +196,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
-        */
+        
+        /**
         StudentSearch studentSearch = new StudentSearch();
         this.setContentPane(studentSearch);
+        */
     }//GEN-LAST:event_studentSearchMenuItemActionPerformed
 
     private void teacherSearchMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherSearchMenuItemActionPerformed
@@ -291,10 +257,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu aboutUsMenu;
     private javax.swing.JMenuItem addStudentMenuItem;
     private javax.swing.JMenuItem addTeacherMenuItem;
-    private javax.swing.JMenu contactUsMenu;
     private javax.swing.JMenuItem deleteStudentMenuItem;
     private javax.swing.JMenuItem editStudentMenuItem;
     private javax.swing.JMenuItem editTeacherMenuItem;
